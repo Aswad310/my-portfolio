@@ -6,8 +6,13 @@ import { Button } from './ui/Button'
 
 export const Hero = () => {
   const handleDownloadCV = () => {
-    // Add your CV download link here
-    window.open('/Aswad Ali - Software Engineer.pdf', '_blank')
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a')
+    link.href = '/Aswad-Ali-Software-Engineer.pdf'
+    link.download = 'Aswad-Ali-Software-Engineer.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (

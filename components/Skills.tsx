@@ -13,56 +13,64 @@ const skillCategories = [
     icon: Code2,
     title: 'Programming Languages',
     skills: ['JavaScript (Strong Expertise)', 'TypeScript', 'Python', 'PHP', 'C/C++'],
-    color: 'text-yellow-500'
+    color: 'text-yellow-500',
+    hoverBorderColor: 'hover:border-l-yellow-500 dark:hover:border-l-yellow-400'
   },
   {
     id: 2,
     icon: Globe,
     title: 'Frontend Technologies',
     skills: ['ReactJS', 'NextJS', 'HTML5', 'CSS3/SCSS', 'Tailwind CSS', 'Bootstrap'],
-    color: 'text-blue-500'
+    color: 'text-blue-500',
+    hoverBorderColor: 'hover:border-l-blue-500 dark:hover:border-l-blue-400'
   },
   {
     id: 3,
     icon: Database,
     title: 'Database Technologies',
     skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Microsoft SQL Server'],
-    color: 'text-green-500'
+    color: 'text-green-500',
+    hoverBorderColor: 'hover:border-l-green-500 dark:hover:border-l-green-400'
   },
   {
     id: 4,
     icon: Cloud,
     title: 'Cloud & DevOps',
     skills: ['AWS (S3, EC2, RDS)', 'Vercel', 'Heroku', 'Netlify', 'Docker', 'CI/CD'],
-    color: 'text-orange-500'
+    color: 'text-orange-500',
+    hoverBorderColor: 'hover:border-l-orange-500 dark:hover:border-l-orange-400'
   },
   {
     id: 5,
     icon: Smartphone,
     title: 'Libraries & Tools',
     skills: ['Redux Toolkit', 'React Query', 'MUI', 'Axios', 'Zod', 'React Hook Form', 'JWT'],
-    color: 'text-purple-500'
+    color: 'text-purple-500',
+    hoverBorderColor: 'hover:border-l-purple-500 dark:hover:border-l-purple-400'
   },
   {
     id: 6,
     icon: Shield,
     title: 'Backend Frameworks',
     skills: ['ExpressJS', 'MoleculerJS', 'Laravel', 'Django/DRF', 'FastAPI', 'Flask'],
-    color: 'text-red-500'
+    color: 'text-red-500',
+    hoverBorderColor: 'hover:border-l-red-500 dark:hover:border-l-red-400'
   },
   {
     id: 7,
     icon: GitBranch,
     title: 'Version Control',
     skills: ['Git', 'GitHub', 'BitBucket'],
-    color: 'text-gray-600'
+    color: 'text-gray-600',
+    hoverBorderColor: 'hover:border-l-gray-500 dark:hover:border-l-gray-400'
   },
   {
     id: 8,
     icon: Lock,
     title: 'Protocols & Services',
     skills: ['REST APIs', 'WebSockets', 'HTTP/HTTPS', 'TCP/UDP', 'SMTP', 'OAuth 2.0'],
-    color: 'text-indigo-500'
+    color: 'text-indigo-500',
+    hoverBorderColor: 'hover:border-l-indigo-500 dark:hover:border-l-indigo-400'
   }
 ]
 
@@ -82,10 +90,14 @@ export const Skills = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {skillCategories.map((category) => (
-            <Card key={category.id} hoverable={true}>
+            <Card 
+              key={category.id} 
+              hoverable={true}
+              className={`border-l-4 border-l-primary border-t border-r border-b border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 ${category.hoverBorderColor} transition-colors duration-300`}
+            >
               <div className="flex items-start gap-4">
                 <category.icon className={`w-8 h-8 ${category.color} shrink-0`} />
-                <div>
+                <div className="flex-1">
                   <h3 className="text-xl font-semibold mb-3">{category.title}</h3>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill) => (

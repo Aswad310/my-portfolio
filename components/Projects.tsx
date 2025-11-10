@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, FolderOpen } from 'lucide-react'
+import { ExternalLink, FolderOpen } from 'lucide-react'
 
 const projects = [
   {
@@ -148,13 +148,6 @@ export const Projects = () => {
                     Live Demo
                   </a>
                 )}
-                <a
-                  href="#"
-                  className="flex items-center gap-1 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors text-sm"
-                >
-                  <Github className="w-4 h-4" />
-                  Code
-                </a>
               </div>
             </motion.div>
           ))}

@@ -67,34 +67,44 @@ export const Experience = () => {
           Professional Experience
         </motion.h2>
 
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="relative">
-              <div className="absolute -left-3 top-6 w-6 h-6 bg-primary rounded-full border-4 border-white dark:border-gray-800" />
-              <div className="ml-4">
-                <div className="flex flex-wrap justify-between items-start mb-2">
-                  <div>
-                    <h3 className="text-2xl font-semibold text-primary">{exp.role}</h3>
-                    <p className="text-lg text-gray-600 dark:text-gray-400">{exp.company}</p>
-                  </div>
-                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
-                    {exp.period}
-                  </span>
+        <div className="relative">
+          {/* Vertical timeline line */}
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700" />
+          
+          <div className="space-y-8 pl-12">
+            {experiences.map((exp, index) => (
+              <div key={index} className="relative">
+                {/* Timeline dot - positioned on the line at left-6 */}
+                <div className="absolute -left-6 top-6 -translate-x-1/2 z-20">
+                  <div className="w-6 h-6 bg-blue-500 dark:bg-blue-400 rounded-full border-4 border-white dark:border-gray-900 shadow-lg ring-2 ring-blue-200 dark:ring-blue-600" />
                 </div>
-                <div className="mt-4">
-                  <h4 className="font-semibold mb-2">Key Projects:</h4>
-                  <div className="grid md:grid-cols-2 gap-2">
-                    {exp.projects.map((project) => (
-                      <div key={project} className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                        <Briefcase className="w-4 h-4 text-primary" />
-                        <span>{project}</span>
-                      </div>
-                    ))}
+                
+                {/* Content card */}
+                <Card className="relative">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-primary">{exp.role}</h3>
+                      <p className="text-lg text-gray-600 dark:text-gray-400">{exp.company}</p>
+                    </div>
+                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm self-start md:self-auto whitespace-nowrap">
+                      {exp.period}
+                    </span>
                   </div>
-                </div>
+                  <div className="mt-4">
+                    <h4 className="font-semibold mb-2">Key Projects:</h4>
+                    <div className="grid md:grid-cols-2 gap-2">
+                      {exp.projects.map((project) => (
+                        <div key={project} className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                          <Briefcase className="w-4 h-4 text-primary" />
+                          <span>{project}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
               </div>
-            </Card>
-          ))}
+            ))}
+          </div>
         </div>
 
         <motion.div
