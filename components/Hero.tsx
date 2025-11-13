@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Phone, MapPin, Download } from 'lucide-react'
 import { Button } from './ui/Button'
+import DotGrid from './dotGrid/DotGrid'
 
 export const Hero = () => {
   const handleDownloadCV = () => {
@@ -18,8 +19,24 @@ export const Hero = () => {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center section-padding bg-linear-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="relative min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+      {/* DotGrid as full-screen background */}
+      <div className="absolute inset-0 h-screen w-full z-0 pointer-events-none overflow-hidden">
+        <DotGrid
+          dotSize={4}
+          gap={20}
+          baseColor="#E5E7EB"
+          activeColor="#5227FF"
+          proximity={380}
+          shockRadius={150}
+          shockStrength={5}
+          resistance={1000}
+          returnDuration={3}
+        />
+      </div>
+
+      {/* Hero content on top */}
+      <div className="relative z-10 max-w-6xl mx-auto text-center section-padding">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
