@@ -14,7 +14,7 @@ const skillCategories = [
     title: 'Programming Languages',
     skills: ['JavaScript (Strong Expertise)', 'TypeScript', 'Python', 'PHP', 'C/C++'],
     color: 'text-yellow-500',
-    hoverBorderColor: 'hover:border-l-yellow-500 dark:hover:border-l-yellow-400'
+    hoverBorderColor: 'hover:border-l-blue-600 dark:hover:border-l-blue-500'
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const skillCategories = [
     title: 'Frontend Technologies',
     skills: ['ReactJS', 'NextJS', 'HTML5', 'CSS3/SCSS', 'Tailwind CSS', 'Bootstrap'],
     color: 'text-blue-500',
-    hoverBorderColor: 'hover:border-l-blue-500 dark:hover:border-l-blue-400'
+    hoverBorderColor: 'hover:border-l-blue-600 dark:hover:border-l-blue-500'
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const skillCategories = [
     title: 'Database Technologies',
     skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Microsoft SQL Server'],
     color: 'text-green-500',
-    hoverBorderColor: 'hover:border-l-green-500 dark:hover:border-l-green-400'
+    hoverBorderColor: 'hover:border-l-blue-600 dark:hover:border-l-blue-500'
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const skillCategories = [
     title: 'Cloud & DevOps',
     skills: ['AWS (S3, EC2, RDS)', 'Vercel', 'Heroku', 'Netlify', 'Docker', 'CI/CD'],
     color: 'text-orange-500',
-    hoverBorderColor: 'hover:border-l-orange-500 dark:hover:border-l-orange-400'
+    hoverBorderColor: 'hover:border-l-blue-600 dark:hover:border-l-blue-500'
   },
   {
     id: 5,
@@ -46,15 +46,15 @@ const skillCategories = [
     title: 'Libraries & Tools',
     skills: ['Redux Toolkit', 'React Query', 'MUI', 'Axios', 'Zod', 'React Hook Form', 'JWT'],
     color: 'text-purple-500',
-    hoverBorderColor: 'hover:border-l-purple-500 dark:hover:border-l-purple-400'
+    hoverBorderColor: 'hover:border-l-blue-600 dark:hover:border-l-blue-500'
   },
   {
     id: 6,
     icon: Shield,
     title: 'Backend Frameworks',
-    skills: ['ExpressJS', 'MoleculerJS', 'Laravel', 'Django/DRF', 'FastAPI', 'Flask'],
+    skills: ['NodeJS', 'ExpressJS', 'MoleculerJS', 'Laravel', 'Django/DRF', 'FastAPI', 'Flask'],
     color: 'text-red-500',
-    hoverBorderColor: 'hover:border-l-red-500 dark:hover:border-l-red-400'
+    hoverBorderColor: 'hover:border-l-blue-600 dark:hover:border-l-blue-500'
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ const skillCategories = [
     title: 'Version Control',
     skills: ['Git', 'GitHub', 'BitBucket'],
     color: 'text-gray-600',
-    hoverBorderColor: 'hover:border-l-gray-500 dark:hover:border-l-gray-400'
+    hoverBorderColor: 'hover:border-l-blue-600 dark:hover:border-l-blue-500'
   },
   {
     id: 8,
@@ -70,7 +70,7 @@ const skillCategories = [
     title: 'Protocols & Services',
     skills: ['REST APIs', 'WebSockets', 'HTTP/HTTPS', 'TCP/UDP', 'SMTP', 'OAuth 2.0'],
     color: 'text-indigo-500',
-    hoverBorderColor: 'hover:border-l-indigo-500 dark:hover:border-l-indigo-400'
+    hoverBorderColor: 'hover:border-l-blue-600 dark:hover:border-l-blue-500'
   }
 ]
 

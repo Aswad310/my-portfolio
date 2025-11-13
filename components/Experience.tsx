@@ -115,7 +115,6 @@ export const Experience = () => {
           className="mt-16"
         >
           <h3 className="text-2xl font-bold text-center mb-8 flex items-center justify-center gap-2">
-            <Award className="w-8 h-8 text-yellow-500" />
             Achievements & Awards
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">

@@ -6,9 +6,11 @@ import { Button } from './ui/Button'
 
 export const Hero = () => {
   const handleDownloadCV = () => {
-    // Create a temporary anchor element to trigger download
+    const fileId = '1jFPNozLUfJCEtCe8-BrSdIShsSCpdN7W'
+    const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`
+
     const link = document.createElement('a')
-    link.href = '/Aswad-Ali-Software-Engineer.pdf'
+    link.href = downloadUrl
     link.download = 'Aswad-Ali-Software-Engineer.pdf'
     document.body.appendChild(link)
     link.click()

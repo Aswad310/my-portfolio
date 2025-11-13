@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
 import { useState } from 'react'
+import { Button } from './ui/Button'
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ export const Contact = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
+            <h3 className="text-2xl font-semibold mb-6">Let&apos;s Connect</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <Mail className="w-6 h-6 text-primary" />
@@ -78,7 +79,7 @@ export const Contact = () => {
                 id="name"
                 required
                 value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
@@ -89,7 +90,7 @@ export const Contact = () => {
                 id="email"
                 required
                 value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
@@ -100,17 +101,14 @@ export const Contact = () => {
                 rows={4}
                 required
                 value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors"
-            >
-              <Send className="w-5 h-5" />
+            <Button variant="outline" type="submit" className="w-full">
+              <Send className="w-5 h-5 mr-2" />
               Send Message
-            </button>
+            </Button>
           </motion.form>
         </div>
       </div>
