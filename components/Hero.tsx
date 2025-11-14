@@ -15,9 +15,7 @@ export const Hero = () => {
     if (typeof window === 'undefined') return LIGHT_BASE
     const stored = localStorage.getItem('theme')
     if (stored === 'dark') return DARK_BASE
-    if (stored === 'light') return LIGHT_BASE
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-    return prefersDark ? DARK_BASE : LIGHT_BASE
+    return LIGHT_BASE
   })
 
   useEffect(() => {
