@@ -10,6 +10,12 @@ export const ThemeToggle = () => {
     const stored = localStorage.getItem('theme') || 'light'
     setTheme(stored)
     document.documentElement.classList.toggle('dark', stored === 'dark')
+    // notify other components in this window about the current theme
+    try {
+      window.dispatchEvent(new CustomEvent('theme-change', { detail: stored }))
+    } catch (e) {
+      console.log(e)
+    }
   }, [])
 
   const toggleTheme = () => {
@@ -17,6 +23,12 @@ export const ThemeToggle = () => {
     setTheme(newTheme)
     localStorage.setItem('theme', newTheme)
     document.documentElement.classList.toggle('dark', newTheme === 'dark')
+    // dispatch a theme-change event so in-page components can react immediately
+    try {
+      window.dispatchEvent(new CustomEvent('theme-change', { detail: newTheme }))
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (

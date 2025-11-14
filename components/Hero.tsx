@@ -1,11 +1,62 @@
 'use client'
 
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Phone, MapPin, Download } from 'lucide-react'
 import { Button } from './ui/Button'
 import DotGrid from './dotGrid/DotGrid'
 
+const LIGHT_BASE = '#E5E7EB'
+const DARK_BASE = '#271e37'
+const ACTIVE_COLOR = '#155dfc';
+
 export const Hero = () => {
+  const [baseColor, setBaseColor] = useState<string>(() => {
+    if (typeof window === 'undefined') return LIGHT_BASE
+    const stored = localStorage.getItem('theme')
+    if (stored === 'dark') return DARK_BASE
+    if (stored === 'light') return LIGHT_BASE
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    return prefersDark ? DARK_BASE : LIGHT_BASE
+  })
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const compute = () => {
+      const stored = localStorage.getItem('theme')
+      const isDark =
+        stored === 'dark' ||
+        (!stored && (document.documentElement.classList.contains('dark') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)))
+      setBaseColor(isDark ? DARK_BASE : LIGHT_BASE)
+    }
+
+    const onThemeChange = () => compute()
+
+    window.addEventListener('theme-change', onThemeChange)
+    window.addEventListener('storage', onThemeChange)
+
+    const mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')
+    const mqHandler = () => compute()
+    if (mql) {
+      if (mql.addEventListener) mql.addEventListener('change', mqHandler)
+      else mql.addListener(mqHandler)
+    }
+
+    const mo = new MutationObserver(() => compute())
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+
+    return () => {
+      window.removeEventListener('theme-change', onThemeChange)
+      window.removeEventListener('storage', onThemeChange)
+      if (mql) {
+        if (mql.removeEventListener) mql.removeEventListener('change', mqHandler)
+        else mql.removeListener(mqHandler)
+      }
+      mo.disconnect()
+    }
+  }, [])
+
   const handleDownloadCV = () => {
     const fileId = '1jFPNozLUfJCEtCe8-BrSdIShsSCpdN7W'
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`
@@ -25,8 +76,8 @@ export const Hero = () => {
         <DotGrid
           dotSize={4}
           gap={20}
-          baseColor="#E5E7EB"
-          activeColor="#5227FF"
+          baseColor={baseColor}
+          activeColor={ACTIVE_COLOR}
           proximity={380}
           shockRadius={150}
           shockStrength={5}

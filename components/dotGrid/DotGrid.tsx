@@ -7,9 +7,9 @@ import './DotGrid.css';
 
 gsap.registerPlugin(InertiaPlugin);
 
-const throttle = (func: (...args: any[]) => void, limit: number) => {
+const throttle = (func: (...args: unknown[]) => void, limit: number) => {
   let lastCall = 0;
-  return function (this: any, ...args: any[]) {
+  return function (this: unknown, ...args: unknown[]) {
     const now = performance.now();
     if (now - lastCall >= limit) {
       lastCall = now;
@@ -55,8 +55,8 @@ function hexToRgb(hex: string) {
 const DotGrid: React.FC<DotGridProps> = ({
   dotSize = 16,
   gap = 32,
-  baseColor = '#5227FF',
-  activeColor = '#5227FF',
+  baseColor = '#E5E7EB',
+  activeColor = '#155dfc',
   proximity = 150,
   speedTrigger = 100,
   shockRadius = 250,
